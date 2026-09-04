@@ -470,3 +470,18 @@ footer {
         display: none; /* ซ่อนของตกแต่งบางส่วนบนมือถือกันรกเกินไป */
     }
 }
+/* ตกแต่งวิดีโอ Y2K */
+.y2k-video {
+    width: 100%;
+    height: 240px;
+    border: var(--y2k-border);
+    border-radius: 10px;
+    box-shadow: 4px 4px 0 var(--pink-neon);
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+}
+
+.y2k-video:hover {
+    box-shadow: 6px 6px 0 var(--cyan-neon);
+    transform: scale(1.02);
+}
