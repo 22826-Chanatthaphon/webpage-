@@ -1,20 +1,19 @@
-
 <!DOCTYPE html>
 <html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Education | Y2K Edition</title>
+    <title>การศึกษา - Portfolio ของฉัน</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="sticker s1">📚</div>
-    <div class="sticker s3">✏️</div>
+    <div class="stars"></div>
+    <div class="planet planet-2">🛸</div>
 
     <header>
-        <nav>
-            <div class="logo">PORTFOLIO<span>.</span></div>
+        <nav class="navbar">
+            <div class="logo">🚀 SpacePortfolio</div>
             <ul class="nav-links">
                 <li><a href="index.html">หน้าแรก</a></li>
                 <li><a href="profile.html">ประวัติส่วนตัว</a></li>
@@ -26,32 +25,73 @@
     </header>
 
     <main>
-        <section class="page-title">
-            <h2>ประวัติการศึกษา 🎓</h2>
-        </section>
+        <section class="page-section">
+            <h2 class="section-title">🎓 ประวัติการศึกษา (Education)</h2>
+            <p class="section-desc">เส้นทางการเดินทางผ่านกาลเวลาและสถานศึกษาของผมครับ</p>
 
-        <section class="timeline-section">
+            <!-- Timeline Section -->
             <div class="timeline">
-                <div class="timeline-item y2k-box float-anim-1">
-                    <div class="dot pulse-anim"></div>
-                    <h3>ประถมศึกษาตอนต้น-ปลาย</h3>
-                    <h4>โรงเรียนบ้านเมืองกลาง</h4>
-                    <p>จบการศึกษาด้วยเกรดเฉลี่ย 3.98</p>
+                <div class="timeline-item">
+                    <div class="timeline-dot">🎒</div>
+                    <div class="timeline-content">
+                        <h3>ประถมศึกษา</h3>
+                        <p class="timeline-school">โรงเรียนอนุบาลจักรวาล</p>
+                        <p>สำเร็จการศึกษาด้วยผลการเรียนยอดเยี่ยม ชื่นชอบวิชาคณิตศาสตร์และคอมพิวเตอร์พื้นฐาน</p>
+                    </div>
                 </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot">🛰️</div>
+                    <div class="timeline-content">
+                        <h3>มัธยมศึกษาตอนต้น (ปัจจุบัน)</h3>
+                        <p class="timeline-school">โรงเรียนอวกาศวิทยาคม (ม.3/1)</p>
+                        <p>กำลังศึกษาอยู่ชั้น ม.3 สนใจเกี่ยวกับการเขียนโค้ด HTML/CSS และการทำโครงงานคอมพิวเตอร์</p>
+                    </div>
+                </div>
+            </div>
 
-                <div class="timeline-item y2k-box float-anim-2">
-                    <div class="dot pulse-anim"></div>
-                    <h3>มัธยมศึกษาตอนต้น (ปัจจุบัน)</h3>
-                    <h4>โรงเรียนจอมทอง</h4>
-                    <p><strong>ระดับชั้น:</strong> ม.3/2</p>
-                    <p><strong>วิชาที่ชอบ:</strong> ภาษาอังกฤษ</p>
+            <!-- Highlight & Table Section -->
+            <div class="edu-highlight-grid">
+                <div class="highlight-card">
+                    <h3>💡 วิชาที่ชอบ</h3>
+                    <p>💻 คอมพิวเตอร์ / วิทยาการคำนวณ</p>
+                    <p>📐 คณิตศาสตร์</p>
+                    <p>🧪 วิทยาศาสตร์และดาราศาสตร์</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>📊 ตารางข้อมูลการศึกษา</h3>
+                    <table class="edu-table">
+                        <tr>
+                            <th>ระดับชั้น</th>
+                            <th>สถานศึกษา</th>
+                            <th>ปีที่จบ / ศึกษา</th>
+                        </tr>
+                        <tr>
+                            <td>ประถมศึกษา</td>
+                            <td>โรงเรียนอนุบาลจักรวาล</td>
+                            <td>2564</td>
+                        </tr>
+                        <tr>
+                            <td>มัธยมศึกษาตอนต้น</td>
+                            <td>โรงเรียนอวกาศวิทยาคม</td>
+                            <td>กำลังศึกษา (ม.3)</td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 ด.ช ชณัฐพล พรพนาธาร  | ม.3/2 | Y2K Portfolio Project</p>
+        <div class="footer-content">
+            <p>&copy; 2026 ด.ช. กาแล็กซี่ เรียนดี | ชั้น ม.3/1 โรงเรียนอวกาศวิทยาคม</p>
+            <ul class="footer-links">
+                <li><a href="index.html">หน้าแรก</a></li>
+                <li><a href="profile.html">ประวัติส่วนตัว</a></li>
+                <li><a href="education.html">การศึกษา</a></li>
+                <li><a href="hobby.html">งานอดิเรก</a></li>
+                <li><a href="contact.html">ติดต่อ</a></li>
+            </ul>
+        </div>
     </footer>
 </body>
 </html>
