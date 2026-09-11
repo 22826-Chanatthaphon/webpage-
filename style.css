@@ -1,118 +1,101 @@
-/* ==========================================================================
-   CSS Variables & Y2K Theme Config (Sour Album Vibe)
-   ========================================================================== */
-:root {
-    --purple-dark: #240046;
-    --purple-main: #7b2cbf;
-    --purple-light: #e0b1cb;
-    --pink-neon: #ff007f;
-    --cyan-neon: #00f5d4;
-    --text-light: #ffffff;
-    --text-dark: #10002b;
-    --y2k-border: 3px solid #10002b;
-    --y2k-shadow: 6px 6px 0px var(--pink-neon);
-    --y2k-shadow-hover: 10px 10px 0px var(--cyan-neon);
-}
+/* Import Font */
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap');
 
-/* ==========================================================================
-   Global Reset & Typography
-   ========================================================================== */
+/* Global Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Kanit', sans-serif;
 }
 
 body {
-    font-family: 'Kanit', sans-serif;
-    /* แบ็คกราวด์ตารางลายสก๊อต Y2K สีม่วงขยับได้เบาๆ */
-    background-color: var(--purple-light);
-    background-image: linear-gradient(var(--text-light) 2px, transparent 2px),
-                      linear-gradient(90deg, var(--text-light) 2px, transparent 2px);
-    background-size: 40px 40px;
-    color: var(--text-dark);
-    line-height: 1.6;
+    background-color: #050b14;
+    color: #ffffff;
     overflow-x: hidden;
-    animation: bgScroll 20s linear infinite;
+    position: relative;
+    line-height: 1.6;
 }
 
-/* ==========================================================================
-   Animations
-   ========================================================================== */
-@keyframes bgScroll {
-    0% { background-position: 0 0; }
-    100% { background-position: 40px 40px; }
+/* Galaxy Background Stars & Floating Animation */
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(2px 2px at 20px 30px, #ffffff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 40px 70px, #00d2ff, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 90px 40px, #ffffff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 160px 120px, #7b2cbf, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 230px 200px, #ffffff, rgba(0,0,0,0));
+    background-repeat: repeat;
+    background-size: 300px 300px;
+    opacity: 0.6;
+    z-index: -2;
+    animation: twinkle 5s infinite alternate;
 }
 
-@keyframes float1 {
-    0%, 100% { transform: translateY(0) rotate(-5deg); }
-    50% { transform: translateY(-15px) rotate(5deg); }
+@keyframes twinkle {
+    0% { opacity: 0.4; }
+    100% { opacity: 0.8; }
 }
 
-@keyframes float2 {
-    0%, 100% { transform: translateY(0) rotate(10deg); }
-    50% { transform: translateY(20px) rotate(-10deg); }
-}
-
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-}
-
-@keyframes spin {
-    100% { transform: rotate(360deg); }
-}
-
-/* ==========================================================================
-   Stickers & Utility Classes (เพื่อให้ทุกอย่างดูขยับได้)
-   ========================================================================== */
-.sticker {
+/* Floating Planets */
+.planet {
     position: fixed;
     font-size: 3rem;
     z-index: -1;
-    filter: drop-shadow(3px 3px 0 var(--pink-neon));
+    opacity: 0.7;
+    animation: floatPlanet 6s ease-in-out infinite alternate;
 }
-.s1 { top: 15%; left: 5%; animation: float1 4s ease-in-out infinite; }
-.s2 { top: 20%; right: 10%; animation: float2 5s ease-in-out infinite; }
-.s3 { bottom: 30%; left: 10%; animation: float2 6s ease-in-out infinite; }
-.s4 { bottom: 15%; right: 5%; animation: float1 4.5s ease-in-out infinite; }
-.s5 { top: 40%; left: 2%; animation: pulse 3s infinite; }
-.s6 { top: 60%; right: 2%; animation: spin 10s linear infinite; }
 
-.float-anim-1 { animation: float1 6s ease-in-out infinite; }
-.float-anim-2 { animation: float2 5s ease-in-out infinite; }
-.pulse-anim { animation: pulse 2s infinite; }
-.spin-hover:hover { animation: spin 1s linear; }
+.planet-1 {
+    top: 15%;
+    left: 5%;
+    animation-duration: 7s;
+}
 
-/* ==========================================================================
-   Navigation
-   ========================================================================== */
+.planet-2 {
+    bottom: 10%;
+    right: 5%;
+    animation-duration: 9s;
+}
+
+@keyframes floatPlanet {
+    0% { transform: translateY(0px) rotate(0deg); }
+    100% { transform: translateY(-20px) rotate(10deg); }
+}
+
+/* Sticky Navigation Bar */
 header {
     position: sticky;
     top: 0;
-    z-index: 100;
-    background: rgba(224, 177, 203, 0.8);
+    width: 100%;
+    z-index: 1000;
+    background: rgba(5, 11, 20, 0.85);
     backdrop-filter: blur(10px);
-    border-bottom: var(--y2k-border);
-    box-shadow: 0 4px 0 var(--purple-main);
+    border-bottom: 1px solid rgba(0, 210, 255, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
-nav {
+.navbar {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 5%;
-    max-width: 1200px;
-    margin: 0 auto;
 }
 
 .logo {
-    font-size: 1.8rem;
-    font-weight: 800;
-    color: var(--purple-dark);
-    letter-spacing: 2px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #00d2ff, #7b2cbf);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
-.logo span { color: var(--pink-neon); }
 
 .nav-links {
     list-style: none;
@@ -122,226 +105,199 @@ nav {
 
 .nav-links a {
     text-decoration: none;
-    color: var(--text-dark);
-    font-weight: 600;
+    color: #b0c4de;
+    font-weight: 400;
     padding: 0.5rem 1rem;
     border-radius: 20px;
-    transition: all 0.3s;
-    border: 2px solid transparent;
-}
-
-.nav-links a:hover, .nav-links a.active {
-    background-color: var(--purple-main);
-    color: var(--text-light);
-    border: 2px solid var(--text-dark);
-    box-shadow: 3px 3px 0 var(--cyan-neon);
-    transform: translateY(-2px);
-}
-
-/* ==========================================================================
-   Y2K Box Components (Card Design)
-   ========================================================================== */
-.y2k-box {
-    background-color: var(--text-light);
-    border: var(--y2k-border);
-    box-shadow: var(--y2k-shadow);
-    border-radius: 15px;
-    padding: 2rem;
     transition: all 0.3s ease;
 }
 
-.y2k-box:hover {
-    box-shadow: var(--y2k-shadow-hover);
-    transform: translateY(-5px);
+.nav-links a:hover, .nav-links a.active {
+    color: #ffffff;
+    background: linear-gradient(135deg, #1976D2, #7b2cbf);
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
 }
 
-/* ==========================================================================
-   Hero Section (Index)
-   ========================================================================== */
-.hero {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    min-height: 80vh;
-    padding: 2rem 5%;
+/* Hero Section */
+main {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 3rem 2rem;
+    min-height: calc(100vh - 160px);
+    display: flex;
+    align-items: center;
 }
 
-.hero-content {
-    flex: 1;
-    padding-right: 2rem;
+.hero-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    width: 100%;
 }
 
-.hero h1 {
-    font-size: 3.5rem;
-    line-height: 1.2;
+.badge {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    background: rgba(0, 210, 255, 0.1);
+    border: 1px solid rgba(0, 210, 255, 0.4);
+    color: #00d2ff;
+    border-radius: 30px;
+    font-size: 0.9rem;
     margin-bottom: 1rem;
-    color: var(--purple-dark);
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.2;
 }
 
 .highlight {
-    color: var(--text-light);
-    background-color: var(--purple-main);
-    padding: 0 10px;
-    border: 2px solid var(--text-dark);
-    transform: skew(-5deg);
-    display: inline-block;
+    background: linear-gradient(135deg, #00d2ff, #90CAF9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.tagline {
-    font-size: 1.2rem;
+.subtitle {
+    font-size: 1.1rem;
+    color: #b0c4de;
     margin-bottom: 2rem;
-    font-weight: 600;
 }
 
-.btn-group {
+.hero-buttons {
     display: flex;
     gap: 1rem;
 }
 
+/* Buttons */
 .btn {
-    padding: 0.8rem 1.5rem;
-    text-decoration: none;
-    font-weight: 800;
-    border: var(--y2k-border);
+    display: inline-block;
+    padding: 0.75rem 1.8rem;
     border-radius: 30px;
-    transition: all 0.3s;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .btn-primary {
-    background-color: var(--pink-neon);
-    color: var(--text-light);
-    box-shadow: 4px 4px 0 var(--text-dark);
+    background: linear-gradient(135deg, #00d2ff, #1976D2);
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 210, 255, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 210, 255, 0.7);
 }
 
 .btn-secondary {
-    background-color: var(--cyan-neon);
-    color: var(--text-dark);
-    box-shadow: 4px 4px 0 var(--purple-dark);
+    background: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.btn:hover {
-    transform: scale(1.05) rotate(-2deg);
-    box-shadow: 6px 6px 0 var(--text-dark);
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-3px);
 }
 
+/* Profile Image Glow */
 .hero-image {
-    flex: 1;
     display: flex;
     justify-content: center;
 }
 
-.img-wrapper {
+.profile-card-glow {
     position: relative;
-    width: 300px;
-    height: 300px;
+    border-radius: 20px;
+    padding: 5px;
+    background: linear-gradient(135deg, #00d2ff, #7b2cbf);
+    box-shadow: 0 0 30px rgba(0, 210, 255, 0.3);
+    transition: transform 0.3s ease;
 }
 
-.img-wrapper img {
+.profile-card-glow:hover {
+    transform: scale(1.03);
+}
+
+.profile-card-glow img {
+    display: block;
+    border-radius: 16px;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 5px solid var(--text-dark);
-    position: relative;
-    z-index: 2;
-    animation: float1 4s ease-in-out infinite;
+    max-width: 350px;
+    height: auto;
 }
 
-.circle-decor {
-    position: absolute;
-    top: -10px;
-    left: -10px;
+/* Page Sections Common */
+.page-section {
     width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background-color: var(--cyan-neon);
-    z-index: 1;
-    border: var(--y2k-border);
-    animation: pulse 3s infinite;
+    padding: 2rem 0;
 }
 
-/* ==========================================================================
-   Page Headers
-   ========================================================================== */
-.page-title {
-    text-align: center;
-    padding: 3rem 1rem;
-    max-width: 800px;
-    margin: 0 auto;
+.section-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, #ffffff, #90CAF9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.page-title h2 {
-    font-size: 2.5rem;
-    background-color: var(--text-dark);
-    color: var(--cyan-neon);
-    display: inline-block;
-    padding: 0.5rem 2rem;
-    border-radius: 50px;
-    border: 3px solid var(--pink-neon);
-    transform: rotate(-2deg);
-    box-shadow: 5px 5px 0 var(--pink-neon);
+.section-desc {
+    color: #b0c4de;
+    margin-bottom: 2.5rem;
 }
 
-/* ==========================================================================
-   Profile Section
-   ========================================================================== */
-.profile-section {
-    display: flex;
-    gap: 2rem;
-    max-width: 1000px;
-    margin: 0 auto 4rem auto;
-    padding: 0 5%;
+/* Profile Page Layout */
+.profile-container {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 3rem;
+    background: rgba(13, 27, 42, 0.7);
+    border: 1px solid rgba(0, 210, 255, 0.2);
+    padding: 2.5rem;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-.profile-card {
-    flex: 1;
-    text-align: center;
+.profile-img-box img {
+    width: 100%;
+    border-radius: 15px;
+    border: 2px solid rgba(0, 210, 255, 0.4);
 }
 
-.profile-card img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: var(--y2k-border);
+.profile-info-box h3, .profile-info-box h4 {
+    color: #00d2ff;
     margin-bottom: 1rem;
 }
 
-.about-card {
-    flex: 2;
-    background-color: var(--purple-dark);
-    color: var(--text-light);
+.info-list {
+    list-style: none;
+    margin-bottom: 1.5rem;
 }
 
-.about-card h3 {
-    color: var(--pink-neon);
-    margin-bottom: 1rem;
+.info-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.highlight-box {
-    background-color: var(--pink-neon);
-    color: var(--text-light);
-    padding: 1rem;
-    border: var(--y2k-border);
-    border-radius: 10px;
-    margin-top: 1.5rem;
-    transform: rotate(1deg);
+.about-me-box {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border-left: 4px solid #00d2ff;
 }
 
-/* ==========================================================================
-   Education Timeline
-   ========================================================================== */
-.timeline-section {
-    max-width: 800px;
-    margin: 0 auto 4rem auto;
-    padding: 0 5%;
-}
-
+/* Education Timeline & Cards */
 .timeline {
-    border-left: 4px dashed var(--pink-neon);
+    position: relative;
     padding-left: 2rem;
-    margin-left: 1rem;
+    margin-bottom: 3rem;
+    border-left: 2px solid rgba(0, 210, 255, 0.4);
 }
 
 .timeline-item {
@@ -349,125 +305,235 @@ nav {
     margin-bottom: 2rem;
 }
 
-.timeline-item .dot {
+.timeline-dot {
     position: absolute;
-    left: -2.8rem;
-    top: 1.5rem;
-    width: 20px;
-    height: 20px;
-    background-color: var(--cyan-neon);
-    border: 3px solid var(--text-dark);
+    left: -2.6rem;
+    top: 0;
+    background: #0d1b2a;
+    border: 2px solid #00d2ff;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
 }
 
-.timeline-item h3 { color: var(--purple-main); }
-.timeline-item h4 { color: var(--pink-neon); margin-bottom: 0.5rem; }
+.timeline-content {
+    background: rgba(13, 27, 42, 0.7);
+    border: 1px solid rgba(0, 210, 255, 0.2);
+    padding: 1.5rem;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
 
-/* ==========================================================================
-   Hobby Grid
-   ========================================================================== */
+.timeline-content h3 {
+    color: #00d2ff;
+    margin-bottom: 0.3rem;
+}
+
+.timeline-school {
+    font-weight: 600;
+    color: #90CAF9;
+    margin-bottom: 0.5rem;
+}
+
+.edu-highlight-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.highlight-card {
+    background: rgba(13, 27, 42, 0.7);
+    border: 1px solid rgba(0, 210, 255, 0.2);
+    padding: 2rem;
+    border-radius: 15px;
+}
+
+.highlight-card h3 {
+    color: #00d2ff;
+    margin-bottom: 1rem;
+}
+
+.edu-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.edu-table th, .edu-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.edu-table th {
+    color: #00d2ff;
+}
+
+/* Hobby Grid Cards */
 .hobby-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto 4rem auto;
-    padding: 0 5%;
 }
 
 .hobby-card {
-    text-align: center;
-    background-color: #ffdeeb; /* Light pink background */
+    background: rgba(13, 27, 42, 0.7);
+    border: 1px solid rgba(0, 210, 255, 0.2);
+    padding: 2rem;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
 }
 
-.hobby-card .icon {
-    font-size: 3rem;
+.hobby-card:hover {
+    transform: translateY(-8px);
+    border-color: #00d2ff;
+    box-shadow: 0 10px 25px rgba(0, 210, 255, 0.3);
+}
+
+.hobby-icon {
+    font-size: 2.5rem;
     margin-bottom: 1rem;
 }
 
 .hobby-card h3 {
-    color: var(--purple-dark);
+    color: #ffffff;
     margin-bottom: 0.5rem;
 }
 
-/* ==========================================================================
-   Contact Section
-   ========================================================================== */
-.contact-section {
-    display: flex;
-    justify-content: center;
+.hobby-card p {
+    color: #b0c4de;
+    font-size: 0.95rem;
+}
+
+/* Contact Page */
+.contact-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
-    max-width: 1000px;
-    margin: 0 auto 4rem auto;
-    padding: 0 5%;
-    flex-wrap: wrap;
+    margin-bottom: 3rem;
 }
 
 .contact-card {
-    text-decoration: none;
-    color: var(--text-dark);
-    flex: 1;
-    min-width: 250px;
-    text-align: center;
-    background-color: var(--cyan-neon);
-}
-
-.contact-card .icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
-
-/* ==========================================================================
-   Footer
-   ========================================================================== */
-footer {
-    background-color: var(--purple-dark);
-    color: var(--text-light);
-    text-align: center;
+    background: rgba(13, 27, 42, 0.7);
+    border: 1px solid rgba(0, 210, 255, 0.2);
     padding: 2rem;
-    border-top: 5px solid var(--pink-neon);
+    border-radius: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
 }
 
-/* ==========================================================================
-   Responsive Design (Media Queries)
-   ========================================================================== */
-@media (max-width: 768px) {
-    nav {
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 210, 255, 0.3);
+}
+
+.contact-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.contact-card h3 {
+    color: #00d2ff;
+    margin-bottom: 0.5rem;
+}
+
+.contact-card p {
+    color: #b0c4de;
+    word-break: break-all;
+}
+
+.cta-box {
+    background: linear-gradient(135deg, rgba(25, 118, 210, 0.2), rgba(123, 44, 191, 0.2));
+    border: 1px solid rgba(0, 210, 255, 0.4);
+    padding: 3rem;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.cta-box h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.cta-box p {
+    color: #b0c4de;
+    margin-bottom: 1.5rem;
+}
+
+/* Footer Style */
+footer {
+    background: #03070d;
+    border-top: 1px solid rgba(0, 210, 255, 0.2);
+    padding: 2rem 0;
+    margin-top: 4rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.footer-content p {
+    color: #8a9bb8;
+    font-size: 0.9rem;
+}
+
+.footer-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #8a9bb8;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #00d2ff;
+}
+
+/* Responsive Design (Media Queries) */
+@media (max-width: 968px) {
+    .hero-section, .profile-container, .edu-highlight-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-content h1 {
+        font-size: 2.3rem;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .navbar {
         flex-direction: column;
         gap: 1rem;
     }
-    
+
     .nav-links {
+        gap: 0.5rem;
         flex-wrap: wrap;
         justify-content: center;
     }
 
-    .hero {
+    .footer-content {
         flex-direction: column;
         text-align: center;
-        padding-top: 3rem;
-    }
-
-    .hero-content {
-        padding-right: 0;
-        margin-bottom: 3rem;
-    }
-
-    .btn-group {
-        justify-content: center;
-    }
-
-    .profile-section {
-        flex-direction: column;
-    }
-
-    .timeline {
-        padding-left: 1.5rem;
-    }
-    
-    .timeline-item .dot {
-        left: -2.3rem;
-    }
-    
-    .sticker {
-        display: none; /* ซ่อนของตกแต่งบางส่วนบนมือถือกันรกเกินไป */
     }
 }
-
