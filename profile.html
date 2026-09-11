@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ประวัติส่วนตัว - Portfolio ของฉัน</title>
+    <title>การศึกษา - Portfolio ของฉัน</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -11,15 +11,15 @@
     <div class="stars"></div>
     <div class="shooting-star"></div>
     <div class="shooting-star"></div>
-    <div class="planet planet-1">⭐</div>
+    <div class="planet planet-2">🛸</div>
 
     <header>
         <nav class="navbar">
             <div class="logo">🚀 SpacePortfolio</div>
             <ul class="nav-links">
                 <li><a href="index.html">หน้าแรก</a></li>
-                <li><a href="profile.html" class="active">ประวัติส่วนตัว</a></li>
-                <li><a href="education.html">การศึกษา</a></li>
+                <li><a href="profile.html">ประวัติส่วนตัว</a></li>
+                <li><a href="education.html" class="active">การศึกษา</a></li>
                 <li><a href="hobby.html">งานอดิเรก</a></li>
                 <li><a href="contact.html">ติดต่อ</a></li>
             </ul>
@@ -28,29 +28,56 @@
 
     <main>
         <section class="page-section">
-            <h2 class="section-title">👨‍🚀 ประวัติส่วนตัว (Profile)</h2>
-            <p class="section-desc">ทำความรู้จักตัวตน ความสนใจ และเรื่องราวเบื้องหลังนักเดินทางอวกาศคนนี้กันครับ!</p>
+            <h2 class="section-title">🎓 ประวัติการศึกษา (Education)</h2>
+            <p class="section-desc">เส้นทางการเดินทางผ่านกาลเวลาและสถานศึกษาของผมครับ</p>
 
-            <div class="profile-container">
-                <div class="profile-img-box">
-                    <img src="https://placehold.co/350x450/1e293b/00d2ff?text=👨‍🚀+Profile+Image" alt="รูปโปรไฟล์ของฉัน">
-                </div>
-                <div class="profile-info-box">
-                    <h3>ข้อมูลส่วนตัว</h3>
-                    <ul class="info-list">
-                        <li><strong>ชื่อ-นามสกุล:</strong> ด.ช. กาแล็กซี่ เรียนดี</li>
-                        <li><strong>ชื่อเล่น:</strong> บอส 🪐</li>
-                        <li><strong>อายุ:</strong> 15 ปี</li>
-                        <li><strong>วันเกิด:</strong> 15 สิงหาคม พ.ศ. 2554</li>
-                        <li><strong>โรงเรียน:</strong> โรงเรียนอวกาศวิทยาคม 🏫</li>
-                        <li><strong>ระดับชั้น:</strong> ม.3/1 🎒</li>
-                        <li><strong>จังหวัด:</strong> กรุงเทพมหานคร 🌆</li>
-                    </ul>
-
-                    <div class="about-me-box">
-                        <h4>🌟 เกี่ยวกับฉัน</h4>
-                        <p>สวัสดีครับ ผมเป็นคนชอบเรียนรู้เทคโนโลยีใหม่ ๆ รักการเขียนโปรแกรมและการสร้างเว็บไซต์ มีความฝันอยากเป็น Software Engineer เพื่อสร้างแอปพลิเคชันช่วยเหลือผู้คน นอกจากนี้ยังชอบดาราศาสตร์และการเล่นเกมแนววางแผนครับ!</p>
+            <!-- Timeline Section -->
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot">🎒</div>
+                    <div class="timeline-content">
+                        <h3>ประถมศึกษา</h3>
+                        <p class="timeline-school">โรงเรียนอนุบาลจักรวาล</p>
+                        <p>สำเร็จการศึกษาด้วยผลการเรียนยอดเยี่ยม ชื่นชอบวิชาคณิตศาสตร์และคอมพิวเตอร์พื้นฐาน</p>
                     </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot">🛰️</div>
+                    <div class="timeline-content">
+                        <h3>มัธยมศึกษาตอนต้น (ปัจจุบัน)</h3>
+                        <p class="timeline-school">โรงเรียนอวกาศวิทยาคม (ม.3/1)</p>
+                        <p>กำลังศึกษาอยู่ชั้น ม.3 สนใจเกี่ยวกับการเขียนโค้ด HTML/CSS และการทำโครงงานคอมพิวเตอร์</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Highlight & Table Section -->
+            <div class="edu-highlight-grid">
+                <div class="highlight-card">
+                    <h3>💡 วิชาที่ชอบ</h3>
+                    <p>💻 คอมพิวเตอร์ / วิทยาการคำนวณ</p>
+                    <p>📐 คณิตศาสตร์</p>
+                    <p>🧪 วิทยาศาสตร์และดาราศาสตร์</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>📊 ตารางข้อมูลการศึกษา</h3>
+                    <table class="edu-table">
+                        <tr>
+                            <th>ระดับชั้น</th>
+                            <th>สถานศึกษา</th>
+                            <th>ปีที่จบ / ศึกษา</th>
+                        </tr>
+                        <tr>
+                            <td>ประถมศึกษา</td>
+                            <td>โรงเรียนอนุบาลจักรวาล</td>
+                            <td>2564</td>
+                        </tr>
+                        <tr>
+                            <td>มัธยมศึกษาตอนต้น</td>
+                            <td>โรงเรียนอวกาศวิทยาคม</td>
+                            <td>กำลังศึกษา (ม.3)</td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </section>
